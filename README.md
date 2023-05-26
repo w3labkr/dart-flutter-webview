@@ -3,6 +3,8 @@
 ## Screenshot
 
 ![Screenshot](./Screenshot.png)
+![Screenshot2](./Screenshot2.png)
+![Screenshot3](./Screenshot3.png)
 
 ## Installing
 
@@ -66,6 +68,54 @@ Edit `ios/Runner/Info.plist` to allow http.
         <true/>
     </dict>
 </dict>
+```
+
+## Deployment
+
+Edit `android/app/src/main/AndroidMainfest.xml`
+
+```xml
+<manifest ... >
+    <application ...
+        android:label="APPLICATION_NAME">
+        ...
+    </application>
+</manifest>
+```
+
+Edit `ios/Runner/Info.plist` to allow http.
+
+```xml
+<dict>
+    ...
+    <key>CFBundleDisplayName</key>
+    <string>APPLICATION_NAME</string>
+    ...
+</dict>
+```
+
+Web app: `build/web`
+
+```shell
+fvm flutter build web --release
+```
+
+Windows app: `build/windows/runner/Release`
+
+```shell
+fvm flutter build windows --release
+```
+
+Android app: `build/app/outputs/flutter-apk/app-release.apk`
+
+```shell
+fvm flutter build apk --release --target-platform=android-arm64
+```
+
+Ios app: `build/ios/iphoneos`
+
+```shell
+fvm flutter build ios --release
 ```
 
 ## Commands
